@@ -16,13 +16,50 @@
 <config>
 {
     pages: [
-      'pages/tabs/home'
+      'pages/tabs/home',
+      'pages/tabs/cart',
+      'pages/tabs/search',
+      'pages/tabs/me',
+      'pages/tabs/cates'
     ],
     window: {
-      backgroundTextStyle: 'light',
-      navigationBarBackgroundColor: '#fff',
-      navigationBarTitleText: 'WeChat',
-      navigationBarTextStyle: 'black'
+      backgroundTextStyle: 'dark',
+      navigationBarBackgroundColor: '#d81e06',
+      navigationBarTitleText: 'WeMall',
+      navigationBarTextStyle: 'white'
+    },
+    tabBar: {
+      selectedColor: '#d81e06',
+      list: [{
+        pagePath: 'pages/tabs/home',
+        text: '首页',
+        iconPath: '/static/assets/icons/home.png',
+        selectedIconPath: '/static/assets/icons/home-active.png'
+      },
+      {
+        pagePath: 'pages/tabs/cates',
+        text: '分类',
+        iconPath: '/static/assets/icons/cates.png',
+        selectedIconPath: '/static/assets/icons/cates-active.png'
+      },
+      {
+        pagePath: 'pages/tabs/search',
+        text: '搜索',
+        iconPath: '/static/assets/icons/search.png',
+        selectedIconPath: '/static/assets/icons/search-active.png'
+      },
+      {
+        pagePath: 'pages/tabs/cart',
+        text: '购物车',
+        iconPath: '/static/assets/icons/cart.png',
+        selectedIconPath: '/static/assets/icons/cart-active.png'
+      },
+      {
+        pagePath: 'pages/tabs/me',
+        text: '我的',
+        iconPath: '/static/assets/icons/my.png',
+        selectedIconPath: '/static/assets/icons/my-active.png'
+      }]
     }
 }
 </config>
