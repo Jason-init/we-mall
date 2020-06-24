@@ -1,0 +1,28 @@
+<style lang="less">
+
+</style>
+
+<script>
+  import wepy from '@wepy/core';
+  wepy.app({
+    globalData: {
+    },
+    onLaunch() {
+    },
+    methods: {}
+  })
+</script>
+
+<config>
+{
+    pages: [
+      'pages/tabs/home'
+    ],
+    window: {
+      backgroundTextStyle: 'light',
+      navigationBarBackgroundColor: '#fff',
+      navigationBarTitleText: 'WeChat',
+      navigationBarTextStyle: 'black'
+    }
+}
+</config>

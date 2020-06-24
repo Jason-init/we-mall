@@ -1,0 +1,25 @@
+<template>
+  <div>
+    home!!!
+  </div>
+</template>
+
+<script>
+import wepy from '@wepy/core'
+
+wepy.page({
+  data: {},
+  methods: {}
+})
+</script>
+
+<style lang='less'>
+
+</style>
+
+<config>
+{
+  navigationBarTitleText: '',
+  usingComponents: {}
+}
+</config>
