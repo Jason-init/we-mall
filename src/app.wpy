@@ -3,7 +3,10 @@
 </style>
 
 <script>
-  import wepy from '@wepy/core';
+  import wepy from '@wepy/core'
+  import promisify from '@wepy/use-promisify'
+  wepy.use(promisify)
+  
   wepy.app({
     globalData: {
     },
@@ -20,7 +23,8 @@
       'pages/tabs/cart',
       'pages/tabs/search',
       'pages/tabs/me',
-      'pages/tabs/cates'
+      'pages/tabs/cates',
+      'pages/goods_detail/main'
     ],
     window: {
       backgroundTextStyle: 'dark',
