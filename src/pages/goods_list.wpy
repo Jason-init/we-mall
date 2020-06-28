@@ -1,0 +1,28 @@
+<template>
+  <div>
+    goods_list
+  </div>
+</template>
+
+<script>
+import wepy from '@wepy/core'
+
+wepy.page({
+  data: {},
+  methods: {},
+  onLoad(options) {
+    console.log(options)
+  }
+})
+</script>
+
+<style lang='less'>
+
+</style>
+
+<config>
+{
+  navigationBarTitleText: '',
+  usingComponents: {}
+}
+</config>

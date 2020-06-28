@@ -17,6 +17,15 @@
         <image :src="item.image_src" v-else></image>
       </template>
     </div>
+    <!-- 楼层区域 -->
+    <div class="floor-container">
+      <div v-for="(item, index) in floorDataList" :key="index" class="floor-item">
+        <image :src="item.floor_title.image_src" class="floor-title-img"></image>
+        <div class="floor-item-container">
+          <image :src="subItem.image_src" v-for="(subItem, subIndex) in item.product_list" :key="subIndex" style="width: {{subItem.image_width}}rpx;" class="floor-item-img" @tap="goGoodsList(subItem.navigator_url)"></image>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -31,19 +40,44 @@
 <style lang='less'>
   swiper {
     height: 350rpx;
+
     navigator,
     image {
       height: 100%;
       width: 750rpx;
     }
   }
+
   .cates {
     display: flex;
     justify-content: space-around;
     margin: 40rpx 0;
+
     image {
       height: 140rpx;
       width: 128rpx;
+    }
+  }
+
+  .floor-container {
+    >.floor-item {
+      >.floor-title-img {
+        width: 640rpx;
+        height: 50rpx;
+        display: block;
+      }
+      >.floor-item-container {
+        >.floor-item-img {
+          height: 190rpx;
+          float: left;
+          margin: 8rpx;
+          margin-top: 0;
+          &:nth-child(1) {
+            height: 390rpx;
+          }
+
+        }
+      }
     }
   }
 </style>

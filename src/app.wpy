@@ -5,6 +5,7 @@
 <script>
   import wepy from '@wepy/core'
   import promisify from '@wepy/use-promisify'
+  import '@/baseAPI.js'
   wepy.use(promisify)
   
   wepy.app({
@@ -24,7 +25,8 @@
       'pages/tabs/search',
       'pages/tabs/me',
       'pages/tabs/cates',
-      'pages/goods_detail/main'
+      'pages/goods_detail/main',
+      'pages/goods_list'
     ],
     window: {
       backgroundTextStyle: 'dark',
