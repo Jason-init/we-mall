@@ -1,20 +1,66 @@
 <template>
-  <div>
-    cates!!!
-  </div>
+  <di class="cates-container">
+    <!-- 左侧滚动栏 -->
+    <scroll-view class="leftScroll" scroll-y style="height: {{windowHeight}}px;">
+      <van-sidebar :active-key="activeKey" @change="onChange">
+        <van-sidebar-item :title="item.cat_name" v-for="(item, index) in cateDataList" :key="index" />
+      </van-sidebar>
+    </scroll-view>
+    <!-- 右侧滚动栏 -->
+    <scroll-view class="rightScroll" scroll-y style="height: {{windowHeight}}px;">
+      <template v-for="(item, index) in secondCateList" :key="index">
+        <van-row>
+          <van-col span="24" style="text-align: center;">
+            <text class="cates-title" space="ensp">/ {{item.cat_name}} /</text>
+          </van-col>
+        </van-row>
+        <van-row>
+          <template v-for="(item, index) in item.children">
+            <van-col span="8" class="thumbCell" @tap="goGoodsList(item.cat_id)">
+              <image :src="item.cat_icon" class="thumbImg"></image>
+              <div class="thumbText">{{item.cat_name}}</div>
+            </van-col>
+          </template>
+        </van-row>
+      </template>
+    </scroll-view>
+  </di>
 </template>
 
 <script>
 import wepy from '@wepy/core'
+import mix from '@/mixins/tabs/cates'
 
 wepy.page({
-  data: {},
-  methods: {}
+  mixins: [mix]
 })
 </script>
 
 <style lang='less'>
-
+.leftScroll {
+  width: 85px;
+}
+.cates-container {
+  display: flex;
+}
+.rightScroll {
+  .cates-title {
+    font-size: 26rpx;
+    font-weight: bold;
+    display: inline-block;
+    margin: 30rpx 0;
+  }
+  .thumbCell {
+    text-align: center;
+    .thumbImg {
+      width: 120rpx;
+      height: 120rpx;
+    }
+    .thumbText {
+      font-size: 24rpx;
+    }
+  }
+}
 </style>
 
 <config>

@@ -7,36 +7,33 @@
   import promisify from '@wepy/use-promisify'
   import '@/baseAPI.js'
   wepy.use(promisify)
-  
   wepy.app({
-    globalData: {
-    },
-    onLaunch() {
-    },
+    globalData: {},
+    onLaunch() {},
     methods: {}
   })
 </script>
 
 <config>
 {
-    pages: [
-      'pages/tabs/home',
-      'pages/tabs/cart',
-      'pages/tabs/search',
-      'pages/tabs/me',
-      'pages/tabs/cates',
-      'pages/goods_detail/main',
-      'pages/goods_list'
-    ],
-    window: {
-      backgroundTextStyle: 'dark',
-      navigationBarBackgroundColor: '#d81e06',
-      navigationBarTitleText: 'WeMall',
-      navigationBarTextStyle: 'white'
-    },
-    tabBar: {
-      selectedColor: '#d81e06',
-      list: [{
+  pages: [
+    'pages/tabs/home',
+    'pages/tabs/cart',
+    'pages/tabs/search',
+    'pages/tabs/me',
+    'pages/tabs/cates',
+    'pages/goods_detail/main',
+    'pages/goods_list'
+  ],
+  window: {
+    backgroundTextStyle: 'dark',
+    navigationBarBackgroundColor: '#d81e06',
+    navigationBarTitleText: 'WeMall',
+    navigationBarTextStyle: 'white'
+  },
+  tabBar: {
+    selectedColor: '#d81e06',
+    list: [{
         pagePath: 'pages/tabs/home',
         text: '首页',
         iconPath: '/static/assets/icons/home.png',
@@ -65,7 +62,14 @@
         text: '我的',
         iconPath: '/static/assets/icons/my.png',
         selectedIconPath: '/static/assets/icons/my-active.png'
-      }]
-    }
+      }
+    ]
+  },
+  usingComponents: {
+    "van-sidebar": "../static/assets/vant/sidebar/index",
+    "van-sidebar-item": "../static/assets/vant/sidebar-item/index",
+    "van-row": "../static/assets/vant/row/index",
+    "van-col": "../static/assets/vant/col/index"
+  }
 }
 </config>
