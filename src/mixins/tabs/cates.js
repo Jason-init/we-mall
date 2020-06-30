@@ -13,7 +13,14 @@ export default {
   },
   methods: {
     async getCateDataList() {
+      wepy.wx.showLoading({
+        title: 'Loading'
+      })
+
       const { data: res } = await wepy.get('/categories')
+
+      wepy.wx.hideLoading()
+
       if (res.meta.status !== 200) return wepy.baseToast(res.meta.msg)
       this.cateDataList = res.message
       this.secondCateList = this.cateDataList[0].children

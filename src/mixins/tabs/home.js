@@ -30,7 +30,14 @@ export default {
       console.log(this.cateDataList)
     },
     async getFloorDataList() {
+      wepy.wx.showLoading({
+        title: 'Loading'
+      })
+
       const { data: res } = await wepy.get('/home/floordata')
+
+      wepy.wx.hideLoading()
+
       if (res.meta.status !== 200) return wepy.baseToast(res.meta.msg)
       this.floorDataList = res.message
       console.log(this.floorDataList)

@@ -9,7 +9,10 @@ import wepy from '@wepy/core'
 
 wepy.page({
   data: {},
-  methods: {}
+  methods: {},
+  onLoad(options) {
+    console.log(options)
+  }
 })
 </script>
 

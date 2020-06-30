@@ -9,7 +9,8 @@
   wepy.use(promisify)
   wepy.app({
     globalData: {},
-    onLaunch() {},
+    onLaunch() {
+    },
     methods: {}
   })
 </script>
@@ -69,7 +70,12 @@
     "van-sidebar": "../static/assets/vant/sidebar/index",
     "van-sidebar-item": "../static/assets/vant/sidebar-item/index",
     "van-row": "../static/assets/vant/row/index",
-    "van-col": "../static/assets/vant/col/index"
+    "van-col": "../static/assets/vant/col/index",
+    "van-search": "../static/assets/vant/search/index",
+    "van-cell": "../static/assets/vant/cell/index",
+    "van-cell-group": "../static/assets/vant/cell-group/index",
+    "van-icon": "../static/assets/vant/icon/index",
+    "van-tag": "../static/assets/vant/tag/index"
   }
 }
 </config>
