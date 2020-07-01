@@ -75,7 +75,8 @@
     "van-cell": "../static/assets/vant/cell/index",
     "van-cell-group": "../static/assets/vant/cell-group/index",
     "van-icon": "../static/assets/vant/icon/index",
-    "van-tag": "../static/assets/vant/tag/index"
+    "van-tag": "../static/assets/vant/tag/index",
+    "van-card": "../static/assets/vant/card/index"
   }
 }
 </config>

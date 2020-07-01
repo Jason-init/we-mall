@@ -1,28 +1,43 @@
 <template>
   <div>
-    goods_list
+    <!-- 商品列表区域 -->
+    <template v-for="(item, index) in goodsDataList" :key="index">
+      <van-card :num="item.goods_number" :price="item.goods_price" :title="item.goods_name" :thumb="item.goods_small_logo" @tap="goGoodsDetail(item.goods_id)"/>
+      <!-- 分割线 -->
+      <div class="sep-line"></div>
+    </template>
+    <div class="end-line" v-if="showEndline === true">--------------------已经到底啦--------------------</div>
   </div>
 </template>
 
 <script>
 import wepy from '@wepy/core'
+import mix from '@/mixins/goods_list'
 
 wepy.page({
-  data: {},
-  methods: {},
-  onLoad(options) {
-    console.log(options)
-  }
+  mixins: [mix]
 })
 </script>
 
 <style lang='less'>
-
+.sep-line {
+  border-top: 1rpx solid #eee;
+}
+.end-line {
+  text-align: center;
+  font-size: 24rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  color: #ddd
+}
 </style>
 
 <config>
 {
-  navigationBarTitleText: '',
-  usingComponents: {}
+  navigationBarTitleText: '商品列表',
+  usingComponents: {},
+  onReachBottomDistance: 100,
+  enablePullDownRefresh: true,
+  backgroundColor: '#eee'
 }
 </config>
