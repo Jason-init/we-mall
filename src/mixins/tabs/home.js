@@ -31,7 +31,7 @@ export default {
     },
     async getFloorDataList() {
       wepy.wx.showLoading({
-        title: 'Loading'
+        title: '加载中'
       })
 
       const { data: res } = await wepy.get('/home/floordata')

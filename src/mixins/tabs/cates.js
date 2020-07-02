@@ -14,7 +14,7 @@ export default {
   methods: {
     async getCateDataList() {
       wepy.wx.showLoading({
-        title: 'Loading'
+        title: '加载中'
       })
 
       const { data: res } = await wepy.get('/categories')

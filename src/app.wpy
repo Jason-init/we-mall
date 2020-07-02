@@ -76,7 +76,13 @@
     "van-cell-group": "../static/assets/vant/cell-group/index",
     "van-icon": "../static/assets/vant/icon/index",
     "van-tag": "../static/assets/vant/tag/index",
-    "van-card": "../static/assets/vant/card/index"
+    "van-card": "../static/assets/vant/card/index",
+    "van-tab": "../static/assets/vant/tab/index",
+    "van-tabs": "../static/assets/vant/tabs/index",
+    "wxparse": "../static/assets/wxparse/wxparse",
+    "van-goods-action": "../static/assets/vant/goods-action/index",
+    "van-goods-action-icon": "../static/assets/vant/goods-action-icon/index",
+    "van-goods-action-button": "../static/assets/vant/goods-action-button/index"
   }
 }
 </config>

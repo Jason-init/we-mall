@@ -17,7 +17,7 @@ export default {
     async getGoodsDataList(callback) {
       this.isLoading = true
       wepy.wx.showLoading({
-        title: 'Loading'
+        title: '加载中'
       })
 
       const { data: res } = await wepy.get('/goods/search', this.queryParams)
