@@ -1,6 +1,9 @@
 <template>
   <div>
-    cart!!!
+    <div class="empty-cart-container">
+      <image src="/static/assets/images/cart_empty@2x.png"></image>
+      <div>哎呦，购物车是空的噢~</div>
+    </div>
   </div>
 </template>
 
@@ -14,7 +17,17 @@ wepy.page({
 </script>
 
 <style lang='less'>
-
+.empty-cart-container {
+  font-size: 26rpx;
+  text-align: center;
+  color: #666;
+  padding-top: 200rpx;
+  >image {
+    width: 180rpx;
+    height: 180rpx;
+    margin-bottom: 20rpx;
+  }
+}
 </style>
 
 <config>

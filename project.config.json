@@ -9,7 +9,7 @@
 		"minified": false,
 		"newFeature": false,
 		"coverView": true,
-		"nodeModules": false,
+		"nodeModules": true,
 		"autoAudits": false,
 		"showShadowRootInWxmlPanel": true,
 		"scopeDataCheck": false,
@@ -24,8 +24,8 @@
 			"outputPath": ""
 		},
 		"useIsolateContext": true,
-		"useCompilerModule": false,
-		"userConfirmedUseCompilerModuleSwitch": false
+		"useCompilerModule": true,
+		"userConfirmedUseCompilerModuleSwitch": true
 	},
 	"compileType": "miniprogram",
 	"appid": "wx63628675d0fea101",
@@ -90,6 +90,13 @@
 					"name": "pages/goods_detail/main",
 					"pathName": "pages/goods_detail/main",
 					"query": "goods_id=744",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/tabs/cart",
+					"pathName": "pages/tabs/cart",
+					"query": "",
 					"scene": null
 				}
 			]

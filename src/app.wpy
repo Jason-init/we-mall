@@ -6,11 +6,14 @@
   import wepy from '@wepy/core'
   import promisify from '@wepy/use-promisify'
   import '@/baseAPI.js'
+  import vuex from '@wepy/x'
+  
   wepy.use(promisify)
+  wepy.use(vuex)
+
   wepy.app({
     globalData: {},
-    onLaunch() {
-    },
+    onLaunch() {},
     methods: {}
   })
 </script>

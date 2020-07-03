@@ -1,13 +1,14 @@
 import wepy from '@wepy/core'
+import { mapMutations, mapState } from '@wepy/x'
 
 export default {
   data: {
     goodsId: '',
     goodsDetail: {},
-    temp: '',
     address: null
   },
   methods: {
+    ...mapMutations(['addGoodsToCart', 'initCart']),
     async getGoodsDetail() {
       wepy.wx.showLoading({
         title: '加载中'
@@ -37,9 +38,21 @@ export default {
       this.address = res
       wepy.wx.setStorageSync('address', res)
       console.log(this.address)
+    },
+    handleContact(e) {
+      console.log(e.$wx)
+    },
+    addToCart() {
+      this.addGoodsToCart(this.goodsDetail)
+      wepy.wx.showToast({
+        title: '已加入购物车',
+        icon: 'success'
+      })
+      console.log(this.cart)
     }
   },
   computed: {
+    ...mapState(['cart']),
     addressStr() {
       if (this.address === null) return '请选择收货地址'
       return this.address.provinceName + this.address.cityName + this.address.countyName + this.address.detailInfo
@@ -48,5 +61,7 @@ export default {
   onLoad(options) {
     this.goodsId = options.goods_id || ''
     this.getGoodsDetail()
+    const cart = wepy.wx.getStorageSync('cart') || []
+    this.initCart(cart)
   }
 }

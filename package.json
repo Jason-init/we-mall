@@ -18,7 +18,9 @@
   "dependencies": {
     "@wepy/core": "^2.0.0-alpha.16",
     "@wepy/use-promisify": "^2.1.0-alpha.4",
-    "miniprogram-slide-view": "0.0.3"
+    "@wepy/x": "^2.1.0-alpha.4",
+    "miniprogram-slide-view": "0.0.3",
+    "vuex": "^3.5.1"
   },
   "devDependencies": {
     "@wepy/cli": "^2.0.0-alpha.28",
