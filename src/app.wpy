@@ -27,7 +27,8 @@
     'pages/tabs/me',
     'pages/tabs/cates',
     'pages/goods_detail/main',
-    'pages/goods_list'
+    'pages/goods_list',
+    'pages/order'
   ],
   window: {
     backgroundTextStyle: 'dark',

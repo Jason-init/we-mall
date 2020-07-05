@@ -41,11 +41,18 @@ export default {
       }).catch(err => { return err })
       console.log(res)
       if (res.errMsg !== 'setTabBarBadge:ok') {}
+    },
+    submitOrder() {
+      if (this.total === 0) return
+      wepy.wx.navigateTo({
+        url: '/pages/order'
+      })
     }
   },
   onLoad() {
     const cart = wepy.wx.getStorageSync('cart') || []
     this.initCart(cart)
+    console.log('load!!!!!')
   },
   computed: {
     ...mapState(['cart']),
@@ -67,6 +74,9 @@ export default {
         }
       })
       return countChecked === this.cart.length
+    },
+    submitDisabled() {
+      return this.totalPrice === 0
     }
   },
   watch: {
@@ -76,5 +86,8 @@ export default {
       },
       deep: true
     }
+  },
+  onShow() {
+    this.renderCartBadge()
   }
 }

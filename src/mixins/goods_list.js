@@ -1,5 +1,4 @@
 import wepy from '@wepy/core'
-import { mapState } from '@wepy/x'
 
 export default {
   data: {
@@ -66,8 +65,5 @@ export default {
     this.getGoodsDataList(() => {
       wepy.wx.stopPullDownRefresh()
     })
-  },
-  computed: {
-    ...mapState(['cart'])
   }
 }

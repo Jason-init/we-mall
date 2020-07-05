@@ -1,0 +1,25 @@
+<template>
+  <div>
+    order!!!
+  </div>
+</template>
+
+<script>
+import wepy from '@wepy/core'
+import mix from '@/mixins/order.js'
+
+wepy.page({
+  mixins: [mix]
+})
+</script>
+
+<style lang='less'>
+
+</style>
+
+<config>
+{
+  navigationBarTitleText: '',
+  usingComponents: {}
+}
+</config>

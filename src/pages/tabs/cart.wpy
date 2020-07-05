@@ -27,7 +27,7 @@
         </van-swipe-cell>
       </template>
       <!-- 购物车提交区域 -->
-      <van-submit-bar :price="totalPrice" button-text="提交订单" bind:submit="onClickButton">
+      <van-submit-bar :price="totalPrice" button-text="提交订单" @submit="submitOrder" :disabled="submitDisabled">
         <van-checkbox :value="isFullChecked" @change="toggleAllChecked"   checked-color="#d81e06" class="fullCheck">全选</van-checkbox>
       </van-submit-bar>
     </div>
