@@ -1,22 +1,51 @@
 <template>
   <div>
-    <div class="empty-cart-container">
+    <!-- 空购物车区域 -->
+    <div class="empty-cart-container" v-if="cart.length === 0">
       <image src="/static/assets/images/cart_empty@2x.png"></image>
       <div>哎呦，购物车是空的噢~</div>
+    </div>
+    <!-- 非空购物车区域 -->
+    <div class="cart-container" v-else>
+      <!-- 购物车标题 -->
+      <van-cell title="购物车列表" icon="shop-o" />
+      <!-- 购物车主体区域 -->
+      <template v-for="(item, index) in cart" :key="item.goods_id">
+        <van-swipe-cell right-width="{{ 65 }}" :left-width="0">
+          <van-card :title="item.goods_name">
+            <div slot="desc" class="desc">
+              <text class="price">¥{{item.goods_price}}</text>
+              <van-stepper :value="item.count" @change="changeCount" data-id="{{item.goods_id}}" />
+            </div>
+            <div slot="thumb" class="thumb">
+              <van-checkbox :value="item.isChecked" @change="changeChecked" data-id="{{item.goods_id}}"
+                checked-color="#D81E06"></van-checkbox>
+              <image :src="item.goods_small_logo"></image>
+            </div>
+          </van-card>
+          <view slot="right" class="delete" @tap="deleteGoods(item.goods_id)">删除</view>
+        </van-swipe-cell>
+      </template>
+      <!-- 购物车提交区域 -->
+      <van-submit-bar :price="totalPrice" button-text="提交订单" bind:submit="onClickButton">
+        <van-checkbox :value="isFullChecked" @change="toggleAllChecked"   checked-color="#d81e06" class="fullCheck">全选</van-checkbox>
+      </van-submit-bar>
     </div>
   </div>
 </template>
 
 <script>
 import wepy from '@wepy/core'
-
+import mix from '@/mixins/tabs/cart'
+import store from '@/store/index'
 wepy.page({
-  data: {},
-  methods: {}
+  mixins: [mix],
+  store
 })
 </script>
 
 <style lang='less'>
+.cart {}
 .empty-cart-container {
   font-size: 26rpx;
   text-align: center;
@@ -27,6 +56,55 @@ wepy.page({
     height: 180rpx;
     margin-bottom: 20rpx;
   }
+}
+.desc {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  .price {
+    color: red;
+    font-weight: bold;
+    font-size: 12px;
+  }
+}
+.van-card {
+  border-bottom: 1rpx solid #eee;
+  padding-left: 7px !important;
+}
+.thumb {
+  display: flex;
+  align-items: center;
+  width: 118px;
+  >image {
+    width: 90px;
+    height: 90px;
+    margin-left: 8px;
+  }
+}
+.van-card__thumb {
+  width: 118px !important;
+}
+.delete {
+  background-color: #ff4444;
+  color: #fff;
+  width: 65px;
+  height: 100%;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cart-container {
+  padding-bottom: 50px;
+}
+.fullCheck {
+  margin-left: 7px;
+}
+.van-submit-bar__bar {
+  padding-left: 0 !important;
 }
 </style>
 

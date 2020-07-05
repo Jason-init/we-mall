@@ -65,7 +65,7 @@
     <!-- 商品导航区域 -->
     <van-goods-action>
       <van-goods-action-icon icon="chat-o" text="客服" open-type="contact" bindcontact="handleContact" />
-      <van-goods-action-icon icon="cart-o" text="购物车" url="/pages/tabs/cart" link-type="switchTab"/>
+      <van-goods-action-icon icon="cart-o" text="购物车" url="/pages/tabs/cart" link-type="switchTab" :info="total"/>
       <van-goods-action-button text="加入购物车" type="warning" @click="addToCart" />
       <van-goods-action-button text="立即购买" bind:click="onClickButton" />
     </van-goods-action>

@@ -85,7 +85,12 @@
     "wxparse": "../static/assets/wxparse/wxparse",
     "van-goods-action": "../static/assets/vant/goods-action/index",
     "van-goods-action-icon": "../static/assets/vant/goods-action-icon/index",
-    "van-goods-action-button": "../static/assets/vant/goods-action-button/index"
+    "van-goods-action-button": "../static/assets/vant/goods-action-button/index",
+    "van-cell": "../static/assets/vant/cell/index",
+    "van-stepper": "../static/assets/vant/stepper/index",
+    "van-checkbox": "../static/assets/vant/checkbox/index",
+    "van-swipe-cell": "../static/assets/vant/swipe-cell/index",
+    "van-submit-bar": "../static/assets/vant/submit-bar/index"
   }
 }
 </config>

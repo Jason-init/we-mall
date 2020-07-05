@@ -28,6 +28,39 @@ export default new Vuex.Store({
     },
     initCart(state, cart) {
       state.cart = cart
+    },
+    updateCount(state, params) {
+      const id = state.cart.findIndex(item => {
+        return item.goods_id === params.id
+      })
+      if (id !== -1) {
+        state.cart[id].count = params.count
+        wepy.wx.setStorageSync('cart', state.cart)
+      }
+    },
+    updateChecked(state, params) {
+      const id = state.cart.findIndex(item => {
+        return item.goods_id === params.id
+      })
+      if (id !== -1) {
+        state.cart[id].isChecked = params.checked
+        wepy.wx.setStorageSync('cart', state.cart)
+      }
+    },
+    deleteItem(state, id) {
+      const index = state.cart.findIndex(item => {
+        return item.goods_id === id
+      })
+      if (index !== -1) {
+        state.cart.splice(index, 1)
+        wepy.wx.setStorageSync('cart', state.cart)
+      }
+    },
+    toggleChecked(state, isChecked) {
+      state.cart.forEach(item => {
+        item.isChecked = isChecked
+      })
+      wepy.wx.setStorageSync('cart', state.cart)
     }
   }
 })

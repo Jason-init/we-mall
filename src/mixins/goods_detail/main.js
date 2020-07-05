@@ -56,6 +56,16 @@ export default {
     addressStr() {
       if (this.address === null) return '请选择收货地址'
       return this.address.provinceName + this.address.cityName + this.address.countyName + this.address.detailInfo
+    },
+    total() {
+      let itemCount = 0
+      this.cart.forEach(item => {
+        if (item.isChecked) {
+          itemCount += item.count
+          console.log(itemCount)
+        }
+      })
+      return itemCount
     }
   },
   onLoad(options) {
