@@ -1,25 +1,82 @@
 <template>
-  <div>
-    order!!!
+  <div class="order-container">
+    <!-- 选择收货地址区域 -->
+    <div class="choose-address-container" v-if="hasSavedAddress === false">
+      <van-button type="info" size="small" @tap="chooseAddress">+ 选择收货地址</van-button>
+    </div>
+    <!-- 收货信息区域 -->
+    <div class="address-container" v-else>
+      <div class="box1" @tap="chooseAddress">
+        <text>收货人：{{address.userName}}</text>
+        <div>
+          <text>联系电话：{{address.telNumber}}</text>
+          <van-icon name="arrow" />
+        </div>
+      </div>
+      <div class="box2">
+        <text>收货地址：{{addressString}}</text>
+      </div>
+    </div>
+    <!-- 分割线 -->
+    <image src="/static/assets/images/cart_border@2x.png" class="sep-line"></image>
+    <!-- 订单商品列表区域 -->
+    <template v-for="(item, index) in checkedGoods" :key="index">
+      <van-card :num="item.count" :price="item.goods_price"  :title="item.goods_name" :thumb="item.goods_small_logo" />
+    </template>
+    <!-- 登录按钮区域 -->
+    <van-button type="primary" size="large" class="loginButton">登录后下单</van-button>
   </div>
 </template>
 
 <script>
 import wepy from '@wepy/core'
 import mix from '@/mixins/order.js'
+import store from '@/store/index'
 
 wepy.page({
-  mixins: [mix]
+  mixins: [mix],
+  store
 })
 </script>
 
 <style lang='less'>
-
+.choose-address-container {
+  text-align: center;
+  padding: 60rpx 0;
+}
+.sep-line {
+  height: 7px;
+  width: 100%;
+  display: block;
+}
+.address-container {
+  font-size: 26rpx;
+  padding: 0 10rpx;
+  .box1 {
+    display: flex;
+    justify-content: space-between;
+    padding: 30rpx 0;
+  }
+  .box2 {
+    padding-bottom: 30rpx;
+  }
+}
+.van-card {
+  border-bottom: 1rpx solid #eee;
+}
+.loginButton {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+.order-container {
+  padding-bottom: 50px;
+}
 </style>
 
 <config>
 {
-  navigationBarTitleText: '',
+  navigationBarTitleText: '确认订单',
   usingComponents: {}
 }
 </config>
