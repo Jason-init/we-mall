@@ -28,7 +28,8 @@
     'pages/tabs/cates',
     'pages/goods_detail/main',
     'pages/goods_list',
-    'pages/order'
+    'pages/order',
+    'pages/orderlist'
   ],
   window: {
     backgroundTextStyle: 'dark',

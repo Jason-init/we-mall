@@ -19,11 +19,14 @@ wepy.baseToast = function(msg = 'request data failed') {
  * @param {String} url request url, relative path starting with '/'
  * @param {Object} data request data
  */
-wepy.get = function (url, data = {}) {
+wepy.get = function (url, data = {}, token = '') {
   return wepy.wx.request({
     url: baseURL + url,
     method: 'GET',
-    data: data
+    data: data,
+    header: {
+      Authorization: token
+    }
   })
 }
 
@@ -32,10 +35,13 @@ wepy.get = function (url, data = {}) {
  * @param {String} url request url, relative path starting with '/'
  * @param {Object} data request data
  */
-wepy.post = function (url, data = {}) {
+wepy.post = function (url, data = {}, token = '') {
   return wepy.wx.request({
     url: baseURL + url,
     method: 'POST',
-    data: data
+    data: data,
+    header: {
+      Authorization: token
+    }
   })
 }

@@ -21,10 +21,13 @@
     <image src="/static/assets/images/cart_border@2x.png" class="sep-line"></image>
     <!-- 订单商品列表区域 -->
     <template v-for="(item, index) in checkedGoods" :key="index">
-      <van-card :num="item.count" :price="item.goods_price"  :title="item.goods_name" :thumb="item.goods_small_logo" />
+      <van-card :num="item.count" :price="item.goods_price" :title="item.goods_name" :thumb="item.goods_small_logo" />
     </template>
     <!-- 登录按钮区域 -->
-    <van-button type="primary" size="large" class="loginButton">登录后下单</van-button>
+    <van-button type="primary" size="large" class="loginButton" open-type="getUserInfo" @getuserinfo="getUserInfo" v-if="isLogin === false">登录后下单
+    </van-button>
+    <!-- 提交订单按钮区域 -->
+    <van-submit-bar :price="totalPrice" button-text="提交订单" bind:submit="onSubmit" v-else/>
   </div>
 </template>
 
