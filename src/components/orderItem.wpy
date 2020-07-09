@@ -1,0 +1,38 @@
+<template>
+  <div>
+    <div class="sep-line"></div>
+    <van-panel title="订单号：+ {{order.order_number}}">
+      <template v-for="(item, index) in order.order_detail" :key="index">
+        <van-card :num="item.count" :price="item.price" :title="item.name" :thumb="item.pic" />
+      </template>
+      <van-cell value="共{{order.total_count}}件商品，订单金额¥{{order.order_price}}" />
+    </van-panel>
+  </div>
+</template>
+
+<script>
+import wepy from '@wepy/core'
+
+wepy.component({
+  props: {
+    order: {}
+  },
+  data: {},
+  methods: {}
+})
+</script>
+
+<style lang='less'>
+.sep-line {
+  border-top: 15rpx solid #eee;
+}
+.van-card {
+  border-bottom: 1rpx solid #eee;
+}
+</style>
+
+<config>
+{
+  usingComponents: {}
+}
+</config>

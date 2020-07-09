@@ -93,7 +93,8 @@
     "van-checkbox": "../static/assets/vant/checkbox/index",
     "van-swipe-cell": "../static/assets/vant/swipe-cell/index",
     "van-submit-bar": "../static/assets/vant/submit-bar/index",
-    "van-button": "../static/assets/vant/button/index"
+    "van-button": "../static/assets/vant/button/index",
+    "van-panel": "../static/assets/vant/panel/index"
   }
 }
 </config>

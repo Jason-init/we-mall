@@ -1,15 +1,34 @@
 <template>
   <div>
-    orderlist
+    <van-tabs :active="active" @change="tabChanged">
+      <!-- 全部订单列表区域 -->
+      <van-tab title="全部">
+        <template v-for="(item, index) in allOrderlist" :key="index">
+          <order-item :order="item"></order-item>
+        </template>
+      </van-tab>
+      <!-- 待付款订单列表区域 -->
+      <van-tab title="待付款">
+        <template v-for="(item, index) in unpayedOrderlist" :key="index">
+          <order-item :order="item"></order-item>
+        </template>
+      </van-tab>
+      <!-- 已付款订单列表区域 -->
+      <van-tab title="已付款">
+        <template v-for="(item, index) in payedOrderlist" :key="index">
+          <order-item :order="item"></order-item>
+        </template>
+      </van-tab>
+    </van-tabs>
   </div>
 </template>
 
 <script>
 import wepy from '@wepy/core'
+import mix from '@/mixins/orderlist.js'
 
 wepy.page({
-  data: {},
-  methods: {}
+  mixins: [mix]
 })
 </script>
 
@@ -19,7 +38,9 @@ wepy.page({
 
 <config>
 {
-  navigationBarTitleText: '',
-  usingComponents: {}
+  navigationBarTitleText: '订单列表',
+  usingComponents: {
+    'order-item': '../components/orderItem'
+  }
 }
 </config>
